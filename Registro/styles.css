@@ -1,0 +1,459 @@
+/* ================================
+   ESTILOS GLOBALES
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   FORMULARIO
+   ================================ */
+
+.form-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    color: #2d3748;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #718096;
+    font-size: 1rem;
+}
+
+/* Grupos de formulario */
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    color: #2d3748;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.required {
+    color: #e53e3e;
+    margin-left: 2px;
+}
+
+/* Input wrapper */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 45px 12px 45px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #f7fafc;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.input-wrapper input.error {
+    border-color: #e53e3e;
+    background: #fff5f5;
+}
+
+.input-wrapper input.success {
+    border-color: #48bb78;
+    background: #f0fff4;
+}
+
+.input-wrapper input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Iconos en inputs */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+/* Botón toggle password */
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.toggle-password:hover {
+    background: #edf2f7;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #e53e3e;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    min-height: 20px;
+    display: none;
+    align-items: center;
+    gap: 5px;
+}
+
+.error-message.visible {
+    display: flex;
+    animation: shake 0.3s ease-in-out;
+}
+
+.error-message::before {
+    content: "⚠️";
+    font-size: 0.9rem;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Helper text */
+.helper-text {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* ================================
+   FORTALEZA DE CONTRASEÑA
+   ================================ */
+
+.password-strength {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+
+.strength-label {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 600;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Colores de fortaleza */
+.strength-fill.weak { background: #e53e3e; width: 25%; }
+.strength-fill.medium { background: #ed8936; width: 50%; }
+.strength-fill.strong { background: #48bb78; width: 75%; }
+.strength-fill.very-strong { background: #38a169; width: 100%; }
+
+.strength-text.weak { color: #e53e3e; }
+.strength-text.medium { color: #ed8936; }
+.strength-text.strong { color: #48bb78; }
+.strength-text.very-strong { color: #38a169; }
+
+/* ================================
+   TÉRMINOS Y CONDICIONES
+   ================================ */
+
+.terms {
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    color: #2d3748;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: #667eea;
+    cursor: pointer;
+}
+
+.custom-checkbox {
+    display: none;
+}
+
+.checkbox-label a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   BOTONES
+   ================================ */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #edf2f7;
+    color: #2d3748;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+/* ================================
+   MENSAJE DE ÉXITO
+   ================================ */
+
+.success-message {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.success-message h3 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+.user-data {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.user-data p {
+    margin: 8px 0;
+    color: #2d3748;
+}
+
+.user-data strong {
+    color: #667eea;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+footer p {
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 640px) {
+    .form-wrapper {
+        padding: 25px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .password-strength {
+        flex-wrap: wrap;
+    }
+
+    .strength-bar {
+        order: 3;
+        flex-basis: 100%;
+    }
+}
+
+/* Estado de carga */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
