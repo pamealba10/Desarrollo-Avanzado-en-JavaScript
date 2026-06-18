@@ -25,6 +25,14 @@ Este proyecto es un formulario de registro para asistentes a un evento. Permite 
 4. Si todo es válido, se abre un modal con el resumen del registro.
 5. Al cerrar el modal, el formulario se reinicia para un nuevo registro.
 
+## Imágenes Representativas
+
+### Vista Principal de la Aplicación
+![principal](img1.png)
+
+![pagina principal](img2.png)
+
+
 ## Nota
 
 El proyecto funciona del lado del cliente, sin backend. Está pensado como práctica de manipulación del DOM, validación de formularios y manejo de eventos en JavaScript.
